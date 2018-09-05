@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<audio src="" id="audio"></audio>-->
+
+         <script>
+
+//            var arr=[1,2,3,4,5,2];
+//            var arr1=arr.indexOf(2);
+//            var arr2=arr.lastIndexOf(2);
+//            console.log(arr1);    //1
+//            console.log(arr2);     //5
+
+         //search 主要应用于正则表达式搜索
+//            console.log(arr.search(//));     //???????????
+
+            /*
+                    *   replace(查找的值，替换的值);
+                    *   直接使用这个方法不会改变原字符串，返回一个替换后的字符串
+                    *
+                    *   如果使用字符串查找的模式，只能替换第一个被找到的字符
+                    *   使用正则表达式查找，可以替换所有被查找到的字符
+                    *
+                    * */
+//                    var str="abcdec";
+
+//                  var str=str.replace("c","3");  //针对字符串  对数组无效
+//                   console.log(str);           // ab3dec    只能替换第一个被找到的值
+//                  console.log(str.replace("c",4));   //ab4dec  只能替换第一个被找到的值
+//                   var str1=str.search(//);
+//                   console.log(str1);
+
+            //substring(查找的下标，结束下标)  结束的位置不算    ()不能使用负数  原数组不变
+//                 console.log(str.substring(0,3));    // abc
+//                   str1=str.substring();        //abcdec
+//                 str1=str.substring(1);         //bcdec  第一位开始
+//                  str1=str.substring(-1);       //  不能使用负数
+//                 console.log(str);               //原字符串不变
+//            console.log(str1);
+
+                 //substr(开始，长度);  从开始起到指定长度的字符串  起始是可以使用负数 原数组不变
+//            console.log(str.substr(1));            //bcdec 一个值就是整个长度
+//            str1=str.substr(1,4);           // bcde 从第一位开始，长度
+//            str1=str.substr(-2,3);           //  ec  长度
+//             str1=str.substr(-1,1)            //c  长度
+//               str1=str.substr(-4,3);          // cde 长度
+//            console.log(str);        //原字符串不变
+//             console.log(str1);
+
+                //Date
+//              var audio=document.getElementById("audio");
+
+//               var date=new Date();
+//               console.log(date);    //中国标准时间
+
+//              console.log(date.getYear());               //118
+//               console.log(date.getFullYear());          //2018
+//               console.log(date.getMonth());             //7
+//              console.log(date.getDay());               //3  星期  0-6
+//               console.log(date.getDate());             //29  日期
+//                console.log(date.getHours());           //23  小时
+//                console.log(date.getMinutes());         //28  分钟
+//                console.log(date.getSeconds());          //31  秒
+//              console.log(date.getMilliseconds());       //765  毫秒
+//               console.log(date.getTime());    // 1535556511765  从1970年1月1号到现在毫秒数
+
+                //时间戳
+                //从新加载最新的数据来查看内容
+
+                          //set可以进行设置所有时间
+
+//                    date.setYear(2019);   //将年份修改  2019
+//                     console.log(date);  //Thu Aug 29 2019 23:31:50 GMT+0800 (中国标准时间)
+
+//                       date.setHours(15,0,0);     //修改了时间  15:00:00
+//                      console.log(date);   //Wed Aug 29 2018 15:00:00 GMT+0800 (中国标准时间)
+
+//                    var now=date.getTime();
+//                 date.setHours(15,0,0);
+//                  var target=date.getTime();
+//                   console.log(target-now)
+
+//               audio.play();
+
+              // 如何得到三天后的日期
+             var date=new Date();
+//             var num=date.getDate()+3;
+//            date.setDate(num);
+//             console.log(num);   //34（因为今天31号） 得到的是在今天的基础上加3   错误的
+               date.setDate(date.getDate()+3);    //正确
+               console.log(date);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </script>
+</body>
+</html>

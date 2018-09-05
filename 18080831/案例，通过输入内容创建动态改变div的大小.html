@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div
+        {
+            width: 10px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 30px;
+            padding: 10px;
+            border: 1px solid #000000;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+          <div></div>
+        <input type="text" />
+
+<script>
+           //现获取div  和  input
+           var div=document.querySelector("div");
+          var input=document.querySelector("[type=text]");
+
+          // 给input添加 事件(就是当input里面输入内容时div里面会同时出现，且div会随着内容增加而增加)
+           // addEventListener("对象"，inputHandler(函数名))
+          input.addEventListener("input",inputHandler);
+            //getComputedStyle() 方法用于获取指定元素的 CSS 样式。获取的样式是元素在浏览器中最终渲染效果的样式。
+          var padding=parseInt(getComputedStyle(div).padding);  //是下面需要减去的 带有px字符，要先转化为数值
+        function inputHandler(e) {
+             e=e  || window.event;    //固定模式，照着写
+            //让div里面的内容等于input输入的内容
+             div.textContent=input.value;
+            //div(样式)宽度等于div里滚动条的宽度  注意后面必须加  "px"  不然DIV宽度不会变化
+//             div.style.width=div.scrollWidth+"px";  //这样写div宽度会变化超过输入的内容，因为多了一个padding
+            div.style.width=div.scrollWidth-padding+"px";  //必须在前面先定义padding  如果不设padding值，那么就不用减了
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

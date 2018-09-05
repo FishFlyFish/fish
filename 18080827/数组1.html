@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //indexOf表示找寻数组里元素的位置，得出的结果是索引
+    //          var arr=[1,2,4,7,9,5,3,"a"];
+    //          console.log(arr.indexOf("a",3));    //7  "a"代表需要查找的元素，3表示从第三位开始找，得到的"a"在第七位
+    //          console.log(arr.indexOf(2,4));       //-1   从第四位开始找2，但是后面没有，所以返回-1
+    //          console.log(~arr.indexOf(4));        //-3   ~表示位非（+1取反）
+
+    //          var a=0xFF;
+    //          console.log(a)                //255
+    //          console.log(a>>4);            //15  二进制向右移四位
+
+    //使用对象创建数组
+    //            var arr= new Object([1,2,4,6,8]);
+    //            console.log(arr);            //[1,2,4,6,8]
+    //
+    //              console.log(arr.length);    //5  长度5
+    //              arr.length=3;                //数组的长度可以赋值
+    //            console.log(arr.length);      //3
+    //            arr.length=0                   //最快的清除数组方法
+
+    //               var arr=[];
+    //                arr[0]=2;                 //先不定义，后面赋值进去
+    //                arr[2]=4;
+    //                console.log(arr);          //[2,empty,4]
+
+    //                  var arr=[];
+    //                  arr.push();               //[]
+    //                  arr.push(1,3,6,"a")
+    //                  console.log(arr);          //[1,3,6,"a"]
+
+    //push 给数组的尾部添加一个或多个元素，返回数组的新长度
+    //                     arr.push(1);
+    //                     arr.push(2,3,4,6,7);
+    //                     console.log(arr);                //[1,2,3,4,6,7]
+    //                     console.log(arr.push());           //6  长度
+    //                     console.log(arr.push(1));        //7   算的是长度（6+1=7）
+    //                     console.log(arr.push(8,9))      //9    （6+1+2=9）
+    //unshift  给数组的头部添加一个或多个元素，返回数组的新长度
+    //                      var arr=[2,5];
+    //                      arr.unshift(1);
+    //                      console.log(arr);          //[1,2,5]
+    //                      arr.unshift(6,8);
+    //                      console.log(arr);          //[6,8,1,2,5]
+    //                     console.log(arr.unshift(1));   //6   数组的长度
+    //                     console.log(arr.unshift(3,4));   //8  长度
+
+    //pop  删除数组的最尾部的元素，并且返回这个被删除的元素
+    //                  var arr=[1,3,5,4,7];
+    //                   arr.pop();
+    //                  console.log(arr);     //[1,3,5,4]  删除了尾部的一个元素
+    //                  console.log(arr.pop());   //7  删除并返回这个元素
+
+    //shift 删除数组头部的元素，并且返回这个被删除的元素
+    //                  var arr=[2,4,6,8];
+    //                  arr.shift();
+    //                  console.log(arr);      //[4,6,8]
+    //                  console.log(arr.shift());  //2
+    //           注：shift与pop相似，一个头部一个尾部，都是删除
+
+
+    //concat() 返回一个新数组，并且和原数组无引用关系，不是同一个引用地址
+    // concat可以用连接多个数据或者多个数组，并且合并为一个一维数组
+    //                 var arr=[1,3,4,6];
+    //                var arr1= arr.concat(2);     //[1,3,4,6,2]  必须定义一个新数组arr1
+    //                var arr2=arr.concat(8,9);    //[1,3,4,6,8,9]  新数组arr2
+    //               console.log(arr1,arr2);
+    //              var arr3=arr.concat([2,7],[8,9]);
+    //              console.log(arr3)              //[1,3,4,6,7,8,9]
+    //              var arr4=arr.concat();
+    //              console.log(arr4)              //[1,3,4,6]
+
+    //  join() 将数组转换为字符串，默认使用逗号分割，如果参数为空，与arr.toString(),String(arr)相同
+
+    //  如果参数为某个字符串  转换的字符就用这个字符串连接
+    //  如果参数是一个空字符，转换后就是直接将数组的元素首尾相连
+    //               var str=arr.join();
+    //               console.log(str);             //1,3,4,6
+    //              var str1=arr.join("");
+    //               console.log(str1);            //1346
+    //               console.log(arr.toString());   //1,3,4,6
+    //               console.log(String(arr));       //1,3,4,6
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

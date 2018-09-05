@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<body style="width: 3000px; height: 3000px">-->
+
+          <div id="box">1 2 3</div>
+
+<script>
+
+//    onscroll=function () {
+
+//        var scrollT=document.documentElement.scrollTop;
+//        var scrollL=document.documentElement.scrollLeft;
+//        var scrollH=document.documentElement.scrollHeight;
+
+          //  这两个已经被淘汰，或许在低版本的浏览器中可以使用
+//        var t = document.body.scrollTop;
+//        var l = document.body.scrollLeft;
+
+//        console.log(scrollT);
+//        console.log(scrollL);
+//        console.log(scrollH);
+
+//         console.log(t);
+//         console.log(l);
+//    }
+
+
+
+           //  页面可视区域的大小
+//               var w = document.documentElement.clientWidth;
+//               var h = document.documentElement.clientHeight;
+//             console.log(w,h);
+             //或者可以写成
+//              console.log(document.documentElement.clientWidth);
+//              console.log(document.documentElement.clientHeight);
+
+          // 加一个函数可以随着页面的缩放改变宽高
+//        onresize = function(){
+//
+//         var w = document.documentElement.clientWidth;
+//         var h = document.documentElement.clientHeight;
+//
+//              console.log(w,h)
+//        }
+
+            //页面整体的大小  必须得给页面先设置宽高
+//            var w = document.body.clientWidth
+//            var h = document.body.clientHeight
+//          console.log(w,h);
+
+
+                var obox=document.getElementById("box");
+         document.onclick=function () {
+             obox.style.border="10px red solid";
+         }
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

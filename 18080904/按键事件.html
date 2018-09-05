@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div
+        {
+            width: 50px;
+            height: 50px;
+            background-color: deepskyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+
+<script>
+
+//    document.addEventListener("keydown",keyHandler);
+//    document.addEventListener("keyup",keyHandler);
+//        document.addEventListener("keypress",keyHandler);
+
+//     function keyHandler(e) {
+//         console.log(e)
+//     }
+
+
+/*
+   *  e.keycode 键码
+   *  left-->up-->right--->down
+   *  左     上    右      下
+   *  37     38    39      40
+   *  enter  13
+   * */
+
+
+
+
+
+
+//通过上下左右来控制小方块在页面的移动
+//    var div=document.querySelector("div");
+//     document.addEventListener("keydown",keyHandler);
+//     function keyHandler(e) {
+
+//    switch (e.keyCode){    //e.keyCode  键码  上下左右按键
+//        case 37:
+//            div.style.left=div.offsetLeft-2+"px";
+//            break;
+//        case 38:
+//            div.style.top=div.offsetTop-2+"px";
+//            break;
+//        case 39:
+//            div.style.left=div.offsetLeft+2+"px";
+//            break;
+//        case 40:
+//            div.style.top=div.offsetTop+2+"px";
+//            break;
+//    }
+
+//         }
+
+
+
+         // 动画特效
+    var div=document.querySelector("div");
+    document.addEventListener("keydown",keyHandler);
+
+     var xSpeed=2;  //距离左边的速度
+     var ySpeed=1;  //距离右边的速度
+
+function keyHandler(e) {
+    switch (e.keyCode){
+        case 37:
+            xSpeed=-2;
+            ySpeed=0;
+            break;
+        case 38:
+            xSpeed=0;
+            ySpeed=-2;
+            break;
+        case 39:
+            xSpeed=2;
+            ySpeed=0;
+            break;
+        case 40:
+            xSpeed=0;
+            ySpeed=2;
+            break;
+    }
+}
+
+     setInterval(animation,16);    //设置一个动画特效
+     function animation() {        //执行的函数
+         div.style.left=div.offsetLeft+xSpeed+"px";  // offsetLeft 距离左边的距离
+         div.style.top=div.offsetTop+ySpeed+"px";    // offsetTop 距离顶部的距离
+     }
+
+
+</script>
+
+</body>
+</html>

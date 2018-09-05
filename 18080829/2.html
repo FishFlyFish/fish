@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+     <script>
+
+//         var arr=[1,2,3,4];
+//         arr[0]=9;
+//         console.log(arr)  //[9,2,3,4]  数组可以改变里面的元素的值
+//         var str="abcde";
+//         var str1=new String("abcdef");
+//         console.log(str[0],str1[1]);   //  a   b
+//         str[0]=1;
+//         str1[1]=[10];
+//         console.log(str[0],str1[1]);  //  a    b  对于字符串不能改变里面元素的值
+
+         //str.charAt(0)  获取字符串指定位置的字符
+//          var str="abcde";
+//          console.log(str.charAt(2));    //  c
+//
+//
+//          //  str.charCodeAt();  获取字符串中第几个位置的字符对应的编码
+//              console.log(str.charCodeAt(0));     //  97  阿斯克码
+//              console.log("abcde".charCodeAt(4));       //  101
+//
+//            //String.fromCharCode  将编码转换为字符
+//            console.log(String.fromCharCode(97));  //  a
+//            console.log(String.fromCharCode(122));  //  z
+
+
+//                        var arr=[];
+//                    for(var i=48;i<123;i++){
+//                          if(i<58){
+//                   arr.push(String.fromCharCode(i));
+//
+//                    }else if(i<91 && i>64){
+//                  arr.push(String.fromCharCode(i));
+//
+//                }else if(i>96 && i<123){
+//                 arr.push(String.fromCharCode(i));
+//
+//                 }
+//              }
+//                  console.log(arr);
+
+              //
+//         var arr=[];
+//           for(var i=97;i<122;i++){
+//               arr.push(String.fromCharCode(i));
+//           }
+////              console.log(arr);
+//          arr.sort(function () {
+//              return Math.random()-0.5;
+//          });
+//         arr.length=6;
+//          console.log(arr);        //  里面都是字符串
+//         console.log(arr.join(""));   //将字符串依次连接
+
+               // concat
+//               var str="aaa";
+//               str+="b";
+//             console.log(str);   //   aaab
+//               str1=str.concat("abc");
+//               console.log(str1)     //  aaababc
+
+            //  大小写转换
+//                   var str="aaa";
+//                   console.log(str.toUpperCase());
+//                   console.log(str.toLowerCase());
+//                str1=str.toUpperCase();
+//                console.log(str1);    //  AAA  小写变大写
+//                str2=str.toLowerCase();
+//                console.log(str2);     //   aaa   大写变小写
+
+
+                 // split
+                 // 与join相反  join是数组中将  (数组)  中元素连接成字符串
+                 // split 是字符中将  (字符串)  使用某个分隔符变成数组
+//                    var str="abcd";
+//                    console.log(str.split());    //["abcd"]
+//                    var str=str.split("");
+//                    console.log(str);   //  ["a","b","c","d"]
+//                     var arr1=[1,2,3,4,5,6];
+//                     console.log(arr1.join());     //1,2,3,4,5,6
+//                      console.log(arr1.join("#"));     //1#2#3#4#5#6
+//                     var arr2=arr1.join("#");
+//                     console.log(arr2);   //1#2#3#4#5#6
+//             console.log(arr2.split(""));  //["1","#","2","#","3","#","4","#","5","#","6"]
+//                console.log(arr2.split("#"));  //["1","2","3","4","5","6"]
+
+
+
+  var str="http://www.163.com/index.html?name=xie&sex=男&age=18&phone=18600112233";
+  //将以上变成对象{http://www.163.com/index.html?name: "xie", sex: "男", age: "18", phone: "18600112233"}
+
+//                var arr=str.split("?");
+////                  console.log(arr);  //["http://www.163.com/index.html", "name=xie&sex=男&age=18&phone=18600112233"]
+//             var arr1=str.split("&");
+////                   console.log(arr1);  //["http://www.163.com/index.html?name=xie", "sex=男", "age=18", "phone=18600112233"]
+//
+//            var obj={};
+//          for (var i=0;i<arr1.length;i++) {
+//              var str1 = arr1[i];
+////              console.log(str1);     //将arr1中的元素依次打印出来
+//
+//              var arr2 = str1.split("=");
+////              console.log(arr2);           //["phone", "18600112233"]
+//              var proto = arr2[0];
+////              console.log(proto);
+//              var value = arr2[1];
+////              console.log(value);
+////              console.log(proto, value);   //phone   18600112233
+//              obj[proto] = value;  //?????????
+//          }
+//          console.log(obj);   //{http://www.163.com/index.html?name: "xie", sex: "男", age: "18", phone: "18600112233"}
+
+
+          //简单写法  字符串转对象，先转成数组，再由数组转成对象
+//           var arr=str.split("?")[1].split("&");   //["name=xie","sex=男","age=18"]
+////           console.log(arr);
+//                  var obj={};                             //转成对象，那么要先设一个对象出来
+//         for(var i=0;i<arr.length;i++){
+//    obj[arr[i].split("=")[0]]=arr[i].split("=")[1];
+//       }
+//          console.log(obj);
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </script>
+</body>
+</html>

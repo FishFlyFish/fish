@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{font-size: 20px}
+        div{width: 20rem;height: 200rem;background-color: greenyellow}
+    </style>
+</head>
+<body>
+<!--div>文字</div>-->
+<form action="#" method="get">
+    <input type="text" id="texts" title="">
+    <input type="text" id="password" title="">
+    <input type="checkbox" id="man" name="sex"><label for="man">男</label>
+    <input type="checkbox" id="women" name="sex"><label for="women">女</label>
+    <select id="select">
+        <option>北京</option>
+        <option>上海</option>
+        <option>南京</option>
+        <option>广州</option>
+    </select>
+    <!--<input type="reset">-->
+    <!--<input type="submit">-->
+</form>
+
+<script>
+    /*
+       *  change   当修改文本框内容后，失去焦距判断，如果本次的内容上次内容不同时，激活该事件
+       *           单选，多选判断是否改变选择
+       *           下拉菜单判断是否修改当前所选项
+       *
+       * */
+    var texts=document.getElementById("texts");
+    var password=document.getElementById("password");
+    texts.addEventListener("change",changeHandler);
+
+    var man=document.querySelector("#man");
+    var women=document.querySelector("#women");
+    var select=document.querySelector("#select");
+    man.addEventListener("change",changeHandler);
+    women.addEventListener("change",changeHandler);
+
+    function changeHandler(e) {
+            console.log(e);
+    }
+
+    /*
+    * load  加载文件，当加载完成时
+    *
+    * */
+
+//    document.addEventListener("load",loadHandler);
+//    function loadHandler(e) {
+//
+//    }
+
+
+    /*
+        *  reset 和 submit都是加给form表单的事件
+        *
+        * */
+    var form=document.querySelector("form");
+    form.addEventListener("reset",formHandler);
+    form.addEventListener("submit",formHandler);
+    function formHandler(e) {
+        e.preventDefault();
+        console.log(e);
+    }
+
+
+    /*
+        *
+        *  select  只能针对文本框中选择里面的内容激活该事件
+        *
+        *  texts.selectionStart 选择的起始位置
+        *   texts.selectionEnd  选择的终止位置
+        * */
+    texts.addEventListener("select",selectHandlers);
+    function selectHandlers(e) {
+            console.log(texts.selectionStart,texts.selectionEnd);   //在文本框中输入，然后选取一段打印，会打印出起始和终止的位置
+        var str=texts.value.slice(texts.selectionStart,texts.selectionEnd);
+        console.log(str);
+    }
+
+    /*
+       *
+       *  resize
+       *
+       *  根据窗口大小调节内容
+       * */
+    var width=1366;
+
+    window.addEventListener("resize",resizeHandler);
+    function resizeHandler(e) {
+        var font=document.documentElement.clientWidth/width*20;
+        document.lastChild.style.fontSize=font+"px";
+    }
+
+    /*
+       * scroll
+       *
+       * */
+    window.addEventListener("scroll",scrollHandler);
+    function scrollHandler(e) {
+        console.log(document.documentElement.scrollTop)
+    }
+
+    /*
+       *  e.relatedTarget  上一次激活焦距的对象
+       *  focus 汇聚焦距
+       *  blur  失去焦距
+       * */
+    texts.addEventListener("focus",focusHandler);
+    password.addEventListener("focus",focusHandler);
+    password.addEventListener("blur",focusHandler);
+    function focusHandler(e) {
+//            console.log(e);
+    }
+
+    /*
+        *  input
+        *  e.data 当前输入的内容
+        *  e.inputType  输入的类型
+        *          insertTex 插入文本
+        *          insertCompositionText  插入输入法的文本
+        *          deleteContentBackward 删除内容
+        *  e.isComposing  是否使用输入法  true/false
+        *
+        * */
+    texts.addEventListener("input",inputHandler);
+    function inputHandler(e) {
+        console.log(e);
+    }
+
+</script>
+</body>
+</html>

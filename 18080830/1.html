@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+     <div id="div0"></div>
+
+<script>
+          // 一个渐变色的正方形
+          //第一种方法
+         var div=document.getElementById("div0");     //获取div
+
+          // rgb(a,b,c,d)  用函数套循环将abc三个值随机赋值， d为透明设置
+       function randomcolor() {
+           //因为将数值存入（）内，所以设rgb，但是不能设整个（），因为数值依次往后存，导致（）1,2现象出现
+           var str="rgb("
+             for (var i=0;i<3;i++) {
+                 str+= Math.floor(Math.random() * 256)+",";  //随机取值
+
+             }
+             //判断设置透明属性
+           //法一
+//             str+=alpha ? Math.random().toFixed(2) : "1";
+           //法二
+             if (true){
+               str+=Math.random()*0.2;
+             }
+
+             str+=")";                        //最后合上
+             return str;
+       }
+//       console.log(randomcolor());
+
+          //第二种方法
+          function randomCol() {
+              var arr=[];
+              for(var i=0;i<3;i++){
+                  arr.push(Math.floor(Math.random()*256));
+              }
+              return "rgb("+arr.join(",")+")";
+          }
+
+            div.style.width="100px";
+            div.style.height="100px";
+           div.style.background=randomcolor();  //=后面是调用的函数，实际上就是rgb(a,b,c,d)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

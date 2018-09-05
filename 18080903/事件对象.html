@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>按钮</button>
+<script>
+    var bn=document.querySelector("button");
+    bn.addEventListener("keydown",clickHandler);
+    function clickHandler(e) {
+//        e=e || window.event;    //现在已经不用了
+//        e.stopPropagation();//IE8以上
+//        e.cancelBubble=true;//IE 8一下浏览器用的
+        console.log(e);
+//        e.ctrlKey,e.shiftKey,e.altKey  是否按着该键点击的鼠标
+        /*
+        *  e.clientX,e.clientY e.x,e.y 鼠标点击当前页面最左端和最顶端对应的位置,鼠标的坐标
+        *  e.pageX,e.pageY   相对页面的最左端和最顶端的位置
+        *  e.offsetX,e.offsetY 鼠标相对被点击的对象的相对坐标，相对被点击对象的左上角位置
+        *
+        *  which  判断左中右键，左键1 中键2 右键3
+        *
+        *
+        *
+        * */
+    }
+</script>
+</body>
+</html>

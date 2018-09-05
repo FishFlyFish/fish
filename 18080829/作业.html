@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+      <script>
+
+          var shopArr=[
+          {id:1001,icon:"img/1.png",name:"餐饮0",num:1,price:[10,20]},
+          {id:1002,icon:"img/2.png",name:"餐饮1",num:1,price:20},
+          {id:1003,icon:"img/3.png",name:"餐饮2",num:1,price:30},
+          {id:1004,icon:"img/4.png",name:"餐饮3",num:1,price:40},
+          {id:1005,icon:"img/5.png",name:"餐饮4",num:1,price:40},
+          {id:1006,icon:"img/6.png",name:"餐饮5",num:1,price:60},
+          {id:1007,icon:"img/7.png",name:"餐饮6",num:1,price:70},
+          {id:1008,icon:"img/8.png",name:"餐饮7",num:1,price:90},
+          {id:1009,icon:"img/9.png",name:"餐饮8",num:1,price:90},
+          {id:1010,icon:"img/10.png",name:"餐饮9",num:1,price:100}
+          ];
+//          1.转换为字符串
+//          对象之间用|分割，属性之间用&分割,对象属性的值有多个时，使用#分割
+//          "id=1001&icon=img/1.png&name=餐饮0&num=1&price=10#20|id=1002&icon=img/2.png&name=餐饮1&num=1&price=30"
+
+
+
+
+            for (var i=0;i<shopArr.length;i++) {
+                var obj = shopArr[i];
+                function toString(obj) {
+                    var str="";
+                    for (var proto in obj){
+                        str+=proto+"="+obj[proto]+"&";
+                    }
+                    str=str.slice(0,-1);
+                    return  str;
+                }
+
+            }
+
+
+           console.log(toString(obj));
+         var arr=[];
+         arr.push(str);
+         console.log(str);
+
+
+
+           //2、把上一个做好的字符串转换回去
+
+         // 3. 查找字符串"abcacedabceade"中"a"的重复次数,再分别统计每个字符的重复次数
+           var str="abcacedabceade"
+
+
+
+
+
+
+
+
+
+
+
+      </script>
+</body>
+</html>

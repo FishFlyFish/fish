@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div
+        {
+            width:100px;
+            height: 100px;
+            background-color: greenyellow;
+            overflow: scroll;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #000000;
+
+        }
+    </style>
+</head>
+<body>
+        <!--div里面的内容获取那就是标签属性了-->
+         <!--<div>sadadasdasdsa</div>-->
+<script>
+
+    //获取div的高度
+//        var div=document.getElementsByTagName("div")[0]; //  div里面获取的是标签属性
+//        console.log(div.clientWidth,div.clientHeight);  //123 为何为123，看下面
+
+
+
+             //页面的可视区域大小
+//     console.log(document.documentElement.clientWidth);
+//     console.log(document.documentElement.clientHeight);
+
+   //body的宽高，初始没有任何内容的情况下，body高度是0
+   //        console.log(document.body.clientWidth,document.body.clientHeight);
+
+              // 加一个函数可以随着页面的缩放改变宽高
+//       onresize=function () {
+//           console.log(document.documentElement.clientWidth);
+//           console.log(document.documentElement.clientHeight);
+//       }
+
+//  console.log(document.documentElement.scrollWidth,document.documentElement.scrollHeight);
+//    console.log(document.body.scrollWidth,document.body.scrollHeight);
+
+
+
+             /*
+               *  clientWidth  clientHeight  一般设置内容的宽度
+               *  width - 滚动条的宽度 + 左右的padding的值(有滚动条的时候)
+               *  width + 左右padding(没有滚动条)
+               *
+               *  scrollWidth  scrollHeight   一般让div(框)随着输入的内容宽高增加
+               *  里面滚动页面内容的宽度+padding
+               *  如果没有滚动条，是实际内容的宽度+padding
+               *
+               *  offsetWidth   offsetHeight   一般用于求当前对象边框外的关系
+               *  div宽度+padding+border
+               * */
+
+
+
+             //   页面滚动条距离顶部 左边距离
+             //  scrollLeft和scrollTop不需要加像素，只要数值
+//             console.log(document.documentElement.scrollTop);  //顶部
+//             console.log(document.documentElement.scrollLeft);  //左边
+         //  如果一个容器中的内容不断增多，例如聊天页面必须保持内容显示最底部
+//             div.scrollTop=parseInt(div.scrollHeight)
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

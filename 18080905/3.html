@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span
+        {
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+<input type="text" id="text">
+<span></span>
+
+<script>
+
+       //  正确输入年月日的格式
+    var txt=document.getElementById("text");
+    var span=document.querySelector("span");
+    txt.addEventListener("input",inputHandler);
+    function inputHandler(e) {
+        if(/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/.test(txt.value)){
+            span.textContent="";
+        }else{
+            span.textContent="错误的年月日";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+      var div=document.createElement("div");
+     document.body.appendChild(div);      //在body里面插个div
+     var div1=document.createElement("div");
+     div.appendChild(div1);               //直接在div里面再插个div
+     div1.textContent="你好";          //在div1里面插入  你好
+//     div.innerHTML+="大家好";         //在第二个div后面
+//      div1.innerHTML+="大家好";       //在你好后面
+//        div.innerHTML="你好"+div.innerHTML;    //在第二个div前面
+
+      var divText=document.createTextNode("真的好");
+      div.appendChild(divText);    //在第二个div后面
+//      div1.appendChild(divText);    //在第二个div里面，你好的下面
+//         var div2=document.createElement("div");
+
+      //insertBefore() 方法可在已有的子节点前插入一个新的子节点。
+//         div.insertBefore(div2,divText);
+            var div3=document.createTextNode("好好好");
+         div.insertBefore(div3,divText);    //插在了你好与大家好之间
+//       div.insertBefore(div3,div.firstChild); //第一个子元素的前面
+//       div.insertBefore(div3,div.firstElementChild); //第一个节点的前面
+
+       //替换
+//      var span=document.createElement("span");
+//      div.replaceChild(span,div3);     //将"好好好"替换成<span></span>
+
+      //删除
+//     span.remove();    //前面加的<span></span>就被删除了    这叫自杀
+//    div.removeChild(divText);   //删除了"真的好"  这叫他杀
+
+//    var div4=div1.cloneNode(false); //浅复制  只复制一个标签
+    var div4=div.cloneNode(true); //深复制  复制里面所有的元素
+   console.log(div4);
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

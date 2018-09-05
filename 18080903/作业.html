@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: magenta;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    //上面在CSS里加上position:absolute至关重要，没有这一步所有div将会全部在最左端从上往下依次排列
+
+
+     //循环每次都会执行里面的函数
+    for (var i=0;i<15;i++){
+        createDiv();            //函数会立即执行，就是钓鱼下面定义的函数
+    }
+        function createDiv() {
+            var div=document.createElement("div");   //创造了一个div
+           document.body.appendChild(div);           //把创建的Div放到页面中显示
+           div.addEventListener("click",clickHandler);   //给div创建一个侦听机制
+
+           div.style.left=Math.random()*(document.documentElement.clientWidth-50)+"px";  //减去50为了不让div超出可视区域
+           div.style.top=Math.random()*(document.documentElement.clientHeight-50)+"px";
+        }
+        var preDiv=[];
+  function clickHandler(e) {
+       if(!e.ctrlKey){
+         if (preDiv.length>0){     //第一次不执行这个if语句，直接执行下面的，第二次因为第一次塞了一个div在数组里，所以长度为1
+             for (var i=0;i<preDiv.length;i++){
+//                 console.log(randomColor())
+                 preDiv[i].style.border="5px solid #0f0";
+                 preDiv[i].style.background=randomColor();
+             }
+         }
+         preDiv[0]=this;         //第一次执行这个，强行将第一个点击的div塞到数组里
+         preDiv[0].style.border="5px solid #0f0";
+         preDiv[0].style.background=randomColor();
+       }
+//       else {
+//           preDiv.push(this);
+//           this.style.border="1px solid #000000"   //这个else{}要不要无所谓
+//       }
+  }
+
+       function randomColor() {
+           var str="rgb(";
+           for (var i=0;i<3;i++){
+               str+=Math.round(Math.random()*256)+",";
+           }
+           if (true){
+               str+=Math.random()*0.3;
+           }
+//           str = str.slice(0,-1);
+           str+=")";
+           return str;
+       }
+
+
+</script>
+</body>
+</html>

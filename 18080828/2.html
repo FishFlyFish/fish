@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+       <script>
+
+             //数组.slice(开始，结束)
+             //截取数组中从开始的下标变量到结束的前一位下标变量位置的所有元素形成一个新数组
+              //只是截取复制，原数组没有删除
+//           var arr=[1,3,4,5,6,7,8,2,9,];
+//           //必须定义一个新数组
+//           var arr1=arr.slice();
+//           var arr2=arr.slice(3);
+//            var arr3=arr.slice(2,5);
+//             var arr4=arr.slice(-2);
+//             var arr5=arr.slice(-6,5);
+//             var arr6=arr.slice(-2,-4);
+//             var arr7=arr.slice(-2,4);
+//             var arr8=arr.slice(2,-2);
+//           console.log(arr);     //[1,3,4,5,6,7,8]  原数组没变化，只是截取
+//           console.log(arr1);    //[1,3,4,5,6,7,8]  相当于复制
+//           console.log(arr2);    //[5,6,7,8]  从下标3开始截取
+//           console.log(arr3);    //从下标2开始，到5结束，但是不包括5
+//             console.log(arr4);  //[7,8]  负数表示从后向前数
+//             console.log(arr5);   //[5,6] 结束的一位不要
+//             console.log(arr6);    //[]空数组
+//             console.log(arr7);     //[]空数组
+//             console.log(arr8);      //[4,5,6] 正数第二个开始截取，倒数第二个结束
+
+
+           //arr.reverse() 当使用倒序时，原数组改变
+//                   var arr=[1,2,3,4,5,6,7,8,9];
+//                   var arr1=["a","b","c","d","e"];
+//                   var arr2=arr.reverse();
+//                   var arr3=arr1.reverse();
+//                   console.log(arr2);
+//                   console.log(arr3);
+
+
+ //            var arr=[2,1,3,5,10,4,7,6,9,8,0];
+//             arr.sort(function (a,b){
+//                 return a-b;        // 升序 [0,1,2,3,4,5,6,7,8,9,10]
+//                 return b-a;        // 倒叙 [10,9,8,7,6,5,4,3,2,1,0]
+//                 return Math.random()-0.5;  //随机乱序  [里面随机变换]
+//             });
+//             console.log(arr);
+
+//             var arr1=["a","b","c","d","e"];  //  阿斯克码
+//             arr1.sort(function (a,b) {
+//                 return a.charCodeAt(0) - b.charCodeAt(0);  // 升序排列 针对字符串
+//             });
+//             console.log(arr1);
+
+
+            //indexOf(要查找的元素，开始的下标)
+//             var arr=[1,3,5,7,9,3,5,4,6,3,12];
+//             var arr1=arr.indexOf(5);
+//             var arr2=arr.lastIndexOf(5);
+//             var arr3=arr.indexOf(0);
+//             console.log(arr1);       //2  查找的是所在元素的下标，没有循环，找到第一个就结束
+//             console.log(arr2);       //2
+//             console.log(arr3);       //-1 如果没有要查找的元素，就返回 -1
+//
+//             if(~arr.indexOf(5)){
+//                 console.log("找到了");
+//             }
+//             if(!~arr.indexOf(0)){
+//                 console.log("没找到");
+//             }
+          //注：if里面为0是false,其他数值都为true
+
+
+             //去除数组里面含3的元素
+
+             //数组.map(function(item,index,list){})
+             //    参数的顺序是item 数组的元素
+             //             index  下标
+             //          list   数组自身
+
+//           var arr=[1,3,5,7,9,3,2,4,6,3,12];
+//           var arr1=[];
+//           arr.map(function (item,index,list){
+//               if (item!==3){
+//                 arr1.push(item);
+//               }
+//           });
+//            console.log(arr1);     //[1,5,7,9,2,4,6,12]
+
+//             arr.map(function (item,index,list) {
+//                 if(item===3){
+//                     list[index]=8;   //替换数组里面的元素
+//                 }
+//             });
+//             console.log(arr);   //[1,8,5,7,9,8,2,4,6,8,12]
+
+
+
+
+
+
+
+
+
+
+       </script>
+</body>
+</html>

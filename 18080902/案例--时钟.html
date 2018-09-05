@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        .outLine {width: 240px;
+            height: 240px;
+            border-radius: 160px;
+            border: 40px solid #f00;
+            position: relative;
+        }
+        .num{width: 240px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 24px;
+            position: absolute;
+            /*transform-origin: 120px 12px;*/
+            top: 108px;
+        }
+        .begin{float: left}
+        .end{float: right}
+        .num:nth-child(1){transform: rotate(90deg)}
+        .num:nth-child(2){transform: rotate(-60deg)}
+        .num:nth-child(3){transform: rotate(-30deg)}
+        .num:nth-child(4){transform: rotate(0deg)}
+        .num:nth-child(5){transform: rotate(30deg)}
+        .num:nth-child(6){transform: rotate(60deg)}
+
+        .triangle{width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            position: absolute;
+            left: 115px;
+        }
+        #seconds{border-bottom: 120px solid #0f0;
+            transform-origin: 5px 120px;}
+        #minutes{border-bottom: 100px solid #f0f;
+            transform-origin: 5px 100px;
+            top: 20px;}
+        #hours{border-bottom: 80px solid #00f;
+            transform-origin: 5px 80px;
+            top: 40px;}
+    </style>
+</head>
+<body>
+  <div class="outLine">
+
+    <div class="num"><span class="begin">12</span><span class="end">6</span></div>
+    <div class="num"><span class="begin">7</span><span class="end">1</span></div>
+    <div class="num"><span class="begin">8</span><span class="end">2</span></div>
+    <div class="num"><span class="begin">9</span><span class="end">3</span></div>
+    <div class="num"><span class="begin">10</span><span class="end">4</span></div>
+    <div class="num"><span class="begin">11</span><span class="end">5</span></div>
+
+    <div id="seconds" class="triangle"></div>
+    <div id="minutes" class="triangle"></div>
+    <div id="hours" class="triangle"></div>
+
+  </div>
+
+<script>
+
+      var seconds=document.getElementById("seconds");
+      var minutes=document.getElementById("minutes");
+      var hours=document.getElementById("hours");
+
+      setInterval(animation,16);
+      function animation() {
+          var date=new Date();
+
+          var sec=date.getSeconds();
+          var ms=date.getMilliseconds();
+          var msa=Number((sec*6+ms*(6/1000)).toFixed(2));
+          seconds.style.transform="rotate("+msa+"deg)";
+
+          var min=date.getMinutes();
+          var minute=min*6+sec*(6/60);
+          minutes.style.transform="rotate("+minute+"deg)";
+
+          var hour=date.getHours();
+          var hou=hour*30+min*(30/60);
+          hours.style.transform="rotate("+hou+"deg)";
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

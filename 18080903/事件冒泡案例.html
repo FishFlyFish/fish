@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>第一章
+        <ul>
+            <li>第一节</li>
+            <li>第二节
+                <ul>
+                    <li>第一课</li>
+                    <li>第二课</li>
+                    <li>第三课</li>
+                    <li>第四课</li>
+                </ul>
+            </li>
+            <li>第三节</li>
+            <li>第四节</li>
+        </ul>
+    </li>
+    <li>第二章</li>
+    <li>第三章</li>
+    <li>第四章</li>
+</ul>
+
+  <script>
+
+      var lis=document.getElementsByTagName("li");  //标签元素
+      for (var i=0;i<lis.length;i++){  //针对li 循环是为了依次点击li,对于最外面的li，因为里面有内容长度所以可以执行下面的语句
+          lis[i].addEventListener("click",clickHandler);  //对于最外面的li只有第一个可以执行后面的语句
+      }
+      function clickHandler(e) {
+          e.stopPropagation();          //切断与父元素之间的联系 因为和ul无关，所有并没有切断与ul这个父元素的关系
+          if (this.children.length > 0) {       //这里this指的是所有的li
+              for (var i = 0; i < this.children.length; i++) {   //为了判断哪个li里面有元素好执行下去
+                  if (this.children[i].style.display === "none") {
+                      this.children[i].style.display = "block";
+                  }else{
+                      this.parentElement.style.display="none";
+                  }
+              }
+          }else {
+              if (this.parentElement !== document.body.firstElementChild) {
+                  this.parentElement.style.display = "none";
+              }
+          }
+      }
+
+  </script>
+</body>
+</html>

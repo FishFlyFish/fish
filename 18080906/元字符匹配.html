@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+      //  g是全局，全部的
+
+                  var str="cat";
+                  console.log(str.match(/a/));  //  ["a", index: 1, input: "cat", groups: undefined]
+                  console.log(str.match(/cat/));   //["cat", index: 0, input: "cat", groups: undefined]
+                  console.log(str.match(/cat/g));   //["cat"]
+
+                  var str="caat";
+                  console.log(str.match(/cat/));  // null
+
+                  var str="catcat";
+                  console.log(str.match(/cat/));  //["cat", index: 0, input: "catcat", groups: undefined] 仍然是匹配到一个
+                  console.log(str.match(/cat/g));  //["cat", "cat"]
+
+                   var str="catcatCatCat";
+                   console.log(str.match(/cat/g));  //["cat", "cat"] 仍然是找到两个，正则表达式区分大小写
+
+                   var str="catcatCatCat";
+                   console.log(str.match(/cat/gi));  //["cat", "cat", "Cat", "Cat"] 加一个gi就是在匹配时忽略了大小写
+
+                   var str="catc。tc+t";
+               console.log(str.match(/c.t/g));  //["cat", "c。t", "c+t"] .代表了通配符，就是ct之间有任何字符都能代替
+
+                   var str="c）atce“tc、t";
+                    console.log(str.match(/c..t/g));  // ["c）at", "ce“t"] 中间可以是任意的
+
+                 var str="catcotcetc.t";
+                console.log(str.match(/c\.t/g));  // ["c.t"] 加一个\就让.失去了通配符的作用，变成普通的.
+
+                var str="catcaocetc.tc\\";
+                 console.log(str.match(/c\\/g));    //  ["c\"] 结果只有一个\
+                console.log(str.replace(/c\\/,"c"))  //catcaocetc.tc  替换两个\\都被替换了
+
+                var str="catcotcetc.tc\\";
+                console.log(str.match(/c[abcde]t/g)); //["cat", "cet"] 表示在其中任意匹配一个
+                console.log(str.match(/c[a-o]t/g)); // ["cat", "cot", "cet"] 比上面的简洁
+
+                var str="catcDtcFtc.tc\\";
+                console.log(str.match(/c[a-xA-Y]t/g));  //["cat", "cDt", "cFt"] 既能匹配得到小写也能匹配到大写
+
+                var str="catcDtcFtc3tc7tc.tc\\";
+                 console.log(str.match(/c[a-xA-Y0-9]t/g)); // ["cat", "cDt", "cFt", "c3t", "c7t"]数字也能匹配到
+
+               var str="catcotcetc.tc[t";
+//                console.log(str.match(/c[t/g));    //错误的
+                console.log(str.match(/c\[t/g));  // ["c[t"] 家一个\才能转义为字符[
+
+                var str="catcotcetc.tc[]t";
+//                 console.log(str.match(/c\[\[t/g));  //null
+                 console.log(str.match(/c[\[\]]t/g));  //
+
+                  var str="catc+t";
+           console.log(str.match(/c\+t/g));
+
+      var str="catcDtcFtc3tc7tc.tc\\";
+      console.log(str.match(/c\wt/g));
+
+           //注：正则中需要用 \转义的字符
+          //     ^ . $ *  +  ? [  ]  (  ) {  } \   /  |
+
+
+
+      /*
+*  .   在普通状态下代表一个任意字符
+*  \.  这是转义，将通配符的.作用转换为字符.的作用
+*  [abc]  任意匹配其中一个,选择匹配
+*  [.] 代表一个字符.
+*
+* */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

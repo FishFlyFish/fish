@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+
+
+            /*4个数随机验证码*/
+            /*方法一*/
+//                   var arr=[];          //用数组装
+//                  for (var i=0;i<4;i++){
+//                      arr.push(Math.round(Math.random()*9));
+//
+//                  }
+//                         console.log(arr.join(""));    //将数组转换成字符串
+
+            /*方法二*/
+//            function random() {
+//                var str="";
+//                for (var i=0;i<4;i++){
+//                    str+=Math.round(Math.random()*9);
+//                }
+//                return str;
+//            } console.log(random());
+
+
+
+
+
+            /*4个字随机验证码*/
+//          var arr=[];
+//          for (var i=0x4e00;i<0x4eff;i++){        //可以设字母随机验证码  97  122  对应a~z
+//              arr.push(String.fromCharCode(i));     //先转换
+//          }
+//          arr.sort(function () {
+//              return Math.random()-0.5;
+//          });
+//            arr.length=4;
+//            console.log(arr.join(""));
+
+
+
+
+
+
+
+             /*定义一个30项的数组，每项为1~10的随机数，每个五个数间隔取平均值*/
+
+//            var arr=[];
+//            for (var i=0;i<30;i++){
+//                arr.push=Math.round(Math.random()*9+1);
+//            }
+////            console.log(arr);
+//           function ave(arr){
+//               var sum=0;
+//               for (var j=0;j<arr.length;j++){
+//                   sum+=arr[j];
+//               }
+//               return sum/arr.length;
+//           }
+//
+//           var newArr=[];
+//           for (var k=0;k<arr.length;k+=5){
+//               newArr.push(ave(arr.slice(k,k+5)));
+//           }
+//           console.log(newArr);
+
+
+
+//          var arr=[6,2,3,2,4,5,7,8];
+//           arr.pop(4);
+//           console.log(arr);
+//           console.log(arr.shift());
+//          console.log(arr.join());
+//           console.log(arr.join(""));
+//            console.log(arr.join("#"));
+//            console.log(arr.join(","));
+//           var arr1=arr.slice(-3,-5);
+//           console.log(arr1);
+
+               //输出字符串"a"的重复次数
+            var arr=["a","d","d","c","a","s","a","e","f"];
+         function fn(string) {
+             var n=-1;
+             var flag=0;
+             for (;;){
+                 n=arr.indexOf(string,n+1);
+                 if (n===-1){
+                     break;
+                 }
+                 flag++;
+             }
+             return flag;
+         }
+      console.log(fn("a"));
+
+            //去除数组里某个元素 比如3
+//                   var arr=[1,3,4,2,5,4,7,3,8,3,9];
+////              var arr1=[];
+//            arr.map(function (item,index,list){
+////                if (item!==3){
+////                    arr1.push(item);
+//                if (item===3){
+//                    list[index]=0;
+//                }
+//            })
+////               console.log(arr1);   //输出的就是除3剩下的元素
+//             console.log(arr);
+
+             //对象转换字符串   函数  for循环遍历
+//            var obj={name:"hu",sex:"男",age:"18"};
+//            function toString(obj) {
+//                var str="";
+//                for (var proto in obj){
+//                    str+=proto+"="+obj[proto]+"&";
+//                }
+//                str=str.slice(0,-1);
+//                return str;
+//            }
+//             console.log(toString(obj));
+
+
+
+
+
+
+  </script>
+</body>
+</html>

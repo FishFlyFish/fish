@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>1</div>
+
+<script>
+    //控制两个页面
+    var div=document.querySelector("div");
+    window.addEventListener("storage",storageHandler);   //侦听存储事件
+    function storageHandler(e) {
+        div.textContent=localStorage.num;
+    }
+
+//      var strs="<div>你好\n欢迎来到这里\n现在我们可以正式了解正则表达式了</div>";
+//
+//     strs=strs.replace(/div/g,"span");
+//     strs=strs.replace(/\n/g,"<br/>");
+//     console.log(strs);
+//
+//    strs1=strs.replace(/div/g,"span").replace(/\n/g,"<br/>");
+//    console.log(strs1);
+//[.]与\.一样
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

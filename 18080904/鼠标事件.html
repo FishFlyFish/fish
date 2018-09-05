@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*.div0*/
+        /*{*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+            /*background-color: deepskyblue;*/
+            /*position: absolute;*/
+        /*}*/
+        /*.div1*/
+        /*{*/
+            /*width: 50px;*/
+            /*height: 50px;*/
+            /*background-color: orange;*/
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*bottom: 0;*/
+            /*left: 0;*/
+            /*right: 0;*/
+            /*margin: auto;*/
+        /*}*/
+        .div2
+        {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            position: absolute;
+        }
+        /*img*/
+        /*{*/
+            /*position: absolute;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<!--<img src="img/icon_a.jpeg">-->
+
+<div class="div0">
+    <div class="div1"></div>
+</div>
+<div class="div2"></div>
+
+<script>
+   /*
+   *   contextmenu  右键  当点击该右键时触发该事件
+   * */
+//       document.addEventListener("contextmenu",contextHandler); //阻止鼠标右键点击出现一些任务栏
+//       document.addEventListener("mousedown",contextHandler); //侦听mousedown事件，然后阻止默认行为，可以将图片禁止拖动取消
+//       function contextHandler(e) {
+//           e.preventDefault();   //阻止默认事情行为
+//       }
+
+
+   /*
+    *
+    *    mouseover  如果里面有子元素，也会触发mouseover鼠标经过时
+    *  mouseout  如果里面有子元素，也会触发mouseout，鼠标滑出时
+    *  mouseleave  鼠标离开元素，子元素不触发
+    *  mouseenter  鼠标进入元素，子元素不触发
+    *
+    * */
+//   var div0=document.querySelector(".div0");
+//   div0.addEventListener("mouseover",mouseHandler);
+//   div0.addEventListener("mouseout",mouseHandler);
+//   div0.addEventListener("mouseenter",mouseHandler);
+//   div0.addEventListener("mouseleave",mouseHandler);
+//   function mouseHandler(e) {
+//            console.log(e.type);
+//   }
+
+   /*
+       *
+       * dblclick   双击鼠标
+       *
+       * */
+//   div0.addEventListener("dblclick",dblClickHandler);
+//   function dblClickHandler(e) {
+//            console.log(e);
+//   }
+
+
+   /*
+ *
+ *  mousedown  鼠标按下键  鼠标按下左，中，右
+ *  mouseup  鼠标释放键  鼠标释放左，中，右
+ *  mousemove  鼠标移动
+ *
+ *
+ * */
+
+//        var div=document.querySelector(".div2");
+
+        //每一次操作鼠标都要给它添加侦听事件
+   /* div2.addEventListener("mousedown",mouseDownHandler);
+           div2.addEventListener("mouseup",mouseUpHandler);
+           div2.addEventListener("mousemove",mousemoveHandler);
+           function mouseDownHandler(e) {
+   //            console.log(e);
+           }
+           function mouseUpHandler(e) {
+   //            console.log(e);
+           }
+           function mousemoveHandler(e) {
+               console.log(e);
+           }*/
+
+
+
+     //拖动
+   var div2=document.querySelector(".div2");
+    div2.addEventListener("mousedown",mousedownHandler);
+   function mousedownHandler(e) {
+       document.addEventListener("mousemove",mousemoveHandler);
+       document.offsetPoint={x:e.offsetX,y:e.offsetY}; //定义位置为了下面
+       div2.addEventListener("mouseup",mouseupHandler);
+   }
+    function mousemoveHandler(e) {
+        div2.style.left=e.x-this.offsetPoint.x+"px"; //减去的这一部分为了让鼠标点击div2时，点哪鼠标出现在哪
+        div2.style.top=e.y-this.offsetPoint.y+"px";
+    }
+       function mouseupHandler(e) {
+           document.removeEventListener("mousemove",mousemoveHandler);
+           div2.removeEventListener("mouseup",mouseupHandler);
+       }
+
+
+   /*
+          *  简写版拖动
+          *
+          * */
+   var img=document.querySelector("img");
+   div2.addEventListener("mousedown",dragHandler);
+   div0.addEventListener("mousedown",dragHandler);
+   img.addEventListener("mousedown",dragHandler);
+   function dragHandler(e) {
+       if(e.type==="mousedown"){
+           document.addEventListener("mousemove",dragHandler);
+           document.offsetPoint={x:e.offsetX,y:e.offsetY};
+           document.dragTarget=this;
+           this.addEventListener("mouseup",dragHandler);
+       }else if(e.type==="mousemove"){
+           this.dragTarget.style.left=e.pageX-this.offsetPoint.x+"px";
+           this.dragTarget.style.top=e.pageY-this.offsetPoint.y+"px";
+       }else if(e.type==="mouseup"){
+           document.removeEventListener("mousemove",dragHandler);
+           this.removeEventListener("mouseup",dragHandler);
+       }
+   }
+
+
+
+
+</script>
+</body>
+</html>

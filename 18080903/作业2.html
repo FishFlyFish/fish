@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: magenta;
+            position: absolute;
+            line-height: 50px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+      document.addEventListener("click",clickHandler);
+
+
+
+      function clickHandler(e) {
+
+          var div=document.createElement("div");
+          document.body.appendChild(div);
+
+          div.style.left=e.x-25+"px";
+          div.style.top=e.y-25+"px";
+          div.style.background=randomColor();
+          div.style.color=randomColor();
+          div.style.border="3px solid #0f0";
+          div.textContent="你好";
+         
+
+
+
+
+
+//          if (preDiv.length>0){
+//              for (var i=0;i<preDiv.length;i++){
+//                  div.style.border="none";
+////                   preDiv[i].style.background=randomColor();
+//
+//              }
+//          }
+//          preDiv[i]=this;
+//          preDiv[i].style.border="3px solid #0f0";
+//          preDiv[i].style.background=randomColor();
+
+//          div.addEventListener("dblclick",dblclickHandler);
+//          function dblclickHandler() {
+//              if (!e.atrlkey){
+//                  if (preDiv.length>0){
+//                      for (var i=0;i<preDiv.length;i++){
+//                          preDiv[i].style.border="none";
+////                   preDiv[i].style.background=randomColor();
+//
+//                      }
+//                  }
+//                  preDiv[i]=this;
+//                  preDiv[i].style.border="3px solid #0f0";
+//                  preDiv[i].style.background=randomColor();
+//
+//              }
+//          }
+      }
+
+
+
+
+
+
+
+
+      function randomColor() {
+          var str="rgb(";
+          for (var i=0;i<3;i++){
+              str+=Math.round(Math.random()*256)+",";
+          }
+          if (true){
+              str+=Math.random()*0.3;
+          }
+//           str = str.slice(0,-1);
+          str+=")";
+          return str;
+      }
+</script>
+</body>
+</html>

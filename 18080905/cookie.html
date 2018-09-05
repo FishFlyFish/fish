@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<form action="..php" method="post">-->
+     <!--//在输入内容后密码会被发送给服务器-->
+    <!--<input type="text" id="user" name="user">-->
+    <!--<input type="password" id="pass" name="pass">-->
+    <!--<input type="submit">-->
+
+<!--</form>-->
+
+<script>
+
+    /*
+*  cookie有效时间是当前页面打开时，关闭即删除
+*
+* */
+
+    /*
+   *
+   *
+   *  var str=JSON.stringify(obj)  将对象转换为字符串（JSON字符串）
+   *
+   *  var obj2=JSON.parse(str)  将JSON字符串转换为对象
+   *
+   * */
+
+
+//
+//             对象转为字符串
+//           var obj={a:1,b:2,c:{a:1,b:2,c:{a:1,b:2,c:3}}};
+//                  var str=JSON.stringify(obj);                    //对象转成字符串
+//                  document.cookie="obj="+str;                   //cookie就会得到这个对象
+////                console.log(document.cookie);                    //得到的任然是一个对象
+//
+//           var arr=document.cookie.split(";");                 //变成了数组
+//              var objs={};
+//           for(var i=0;i<arr.length;i++){
+//            var arr1=arr[i].trim().split("=");
+//            objs[arr1[0]]=arr1[1];                             //又变成了对象
+// }
+////       console.log(arr1)
+////        console.log(objs);
+////      console.log(objs.obj);                                 // 这是JSON字符串
+//        var obj2=JSON.parse(objs.obj);
+//         console.log(obj2);
+
+
+    /*
+*  cookie存储的信息中如果有相同的属性名，就会自动替换
+*  cookie的有效期存储
+*
+* */
+
+            //cookie的生存期
+//         var date=new Date();
+//      date.setDate(8);
+//   //    console.log(date);
+//     document.cookie="user=ericHu;expires="+date.toString();   //当把Hu换成Li  cookie里面也会更改
+
+
+//    setCookie("name","abcde",10);
+//        console.log(getCookie("name"));
+
+    function setCookie(prop,value,hours,date) {
+        var str=prop+"="+value+";expires=";
+        var dates=new Date();
+        if(hours){
+            dates.setHours(dates.getHours()+hours);
+        }
+        if(date){
+            dates.setDate(dates.getDate()+date);
+        }
+        str+=dates.toString();
+        document.cookie=str;
+    }
+
+    function getCookie(prop) {
+        var arr=document.cookie.split(";");
+        var objs={};
+        for(var i=0;i<arr.length;i++){
+            var arr1=arr[i].trim().split("=");
+            objs[arr1[0]]=arr1[1];
+        }
+        return objs[prop];
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

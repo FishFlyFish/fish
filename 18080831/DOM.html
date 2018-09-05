@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <!--<h1 id="header">旧标题</h1>-->
+     <!--<div id="hox">nsnnj</div>-->
+
+      <div id="box">1</div>
+      <div id="box">2</div>
+      <div id="box">3</div>
+
+     <div class="cont">4</div>
+     <div class="cont">5</div>
+
+     <div class="msg">
+         <h1>a</h1>
+         <h1>b</h1>
+         <h1>c</h1>
+     </div>
+
+     <div class="cont">6</div>
+     <span>7</span>
+
+     <input type="text" name="user" value="a" />
+     <input type="text" name="user" value="b" />
+     <input type="text" name="user" value="c" />
+      <input type="text" />
+
+
+<script>
+
+          // DOM Document Object Model  文档对象模型
+      //  通过 HTML DOM，可访问 JavaScript HTML 文档的所有元素。
+
+    //       document.write(Date());    //也可以创建动态时间方式
+    //   var date=new Date();
+    //   console.log(date);
+    //注：绝对不要在文档加载完成之后使用 document.write()。这会覆盖该文档。
+
+    /*   修改 HTML 内容的最简单的方法是使用 innerHTML 属性。
+     *   如需改变 HTML 元素的内容，请使用这个语法：
+     *
+      *
+       ** / document.getElementById(id).innerHTML=new HTML
+
+        //两种写法
+//      document.getElementById("hox").innerHTML="大家好";  //修改HTML内容
+
+//        var element=document.getElementById("header");
+//        element.innerHTML="开心";
+
+            /*  改变HTML属性
+            *   如果改变HTML元素的属性，使用这个语法
+            *   document.getElementById(id).attribute=new value
+            * */
+
+
+
+
+    //  一共8种
+
+    //id选择器:id选择器的失明特性
+          // 不管有多少个div都只选择其中第一个
+          //是一个对象
+//       var obox=document.getElementById("box");
+//       console.log(obox);    //  <div id="box">1</div>
+
+     //  class选择器
+        // 返回的是数组的形式 ，有几个div，数组里就有几个元素，命名方式在前面加a表示数组 （acont）
+//         var acont=document.getElementsByClassName("cont");
+//         console.log(acont);    //[div.cont, div.cont, div.cont]
+    //如果要选取里面的内容必须要标明数组下标
+//         var acont=document.getElementsByClassName("cont")[0];
+//         console.log(acont);          //  <div id="cont">4</div>
+     // 注：Elements与前面的Element不同的是多一个s表示数组
+
+
+        //标签选择器
+          // Element后有s都是数组 与class一样
+//      var aspan=document.getElementsByTagName("span");
+//      console.log(aspan);    //[span]   仍然是一个数组
+
+       //name选择器
+//         var auser=document.getElementsByName("user");
+//         console.log(auser);    // [input,input,input] 与前面的都一样
+//         console.log(auser[0]);  // <input type="text" name="user" value="a" />
+
+
+
+        //ES5(版本，现在最新是ES8)新增两种选择器
+        //  querySelector  可以选取任何类型的选择器，但是只能选择一个  返回的是对象
+        //  querySelectorAll  能选择所有的  返回的都是数组
+
+//         var obox=document.querySelector("box");    // null  错误的
+          //因为是id选择器 要加  #
+//         var obox=document.querySelector("#box");   // <div id="box">1</div>
+
+          //因为是class选择器  要加  .
+//         var acont=document.querySelector(".cont");   //  <div id="cont">4</div>
+
+//         var aspan=document.querySelector("span");   //  <span>7</span>
+
+//         var auser=document.querySelector("input[name=user]");  //<input type="text" name="user" value="a" />
+//           console.log(auser);
+
+           //获取文本框的内容
+          //var input=document.querySelector("[type=text]");
+          //console.log(input);  //<input type="text">
+
+
+             //  返回的都是数组
+//          var obox=document.querySelectorAll("#box");    //[div#box, div#box, div#box]
+//          var acont=document.querySelectorAll(".cont");   // [div.cont, div.cont, div.cont]
+//          var aspan=document.querySelectorAll("span");
+//          var auser=document.querySelectorAll("input[name=user]");
+//             console.log(aspan);
+
+       //  父选子  返回的是数组
+//          var omsg=document.querySelector(".msg");
+//          var omsg=document.getElementsByClassName("msg")[0];
+//          var achild=omsg.children;
+//          console.log(achild);         // [h1, h1, h1]
+//            console.log(omsg.children);   // [h1, h1, h1]
+
+
+            //子选父  返回的是对象
+//          var omsg=document.querySelector(".msg");
+//          var achild=omsg.children;
+//          console.log(achild[2].parentNode);  //<div class="msg">...</div>
+   //注：achild[]  []里面是元素对应的下标  0 1 2都可以取
+
+    //注意：1.不是所有标签都有name值
+    //  2.在低版本的浏览器中，getElementsByName和getElementsByClassName有兼容性，未来可能会被淘汰
+
+   //另一种方法寻找节点
+//          console.log(document.body.children[5]);  //<div id="box">1</div>
+//          console.log(document.body.children[5].firstElementChild); //<h1>a</h1>
+//          console.log(document.body.children[5].lastElementChild);  //<h1>c</h1>
+//          console.log(document.body.children[5].firstElementChild.lastElementChild.firstElementChild.firstElementChild);
+
+
+</script>
+</body>
+</html>

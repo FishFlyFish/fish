@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <div id="div0"></div>
+<script>
+    var div=document.getElementById("div0");
+           /*
+           * 设置DOM对象的标签属性，通过设置属性名和属性值
+           *
+           *
+           *
+           *
+           * */
+
+           //标签属性的命名，全部小写字母，单词与单词之间用-连接，不是下划线
+//     div.setAttribute("target-names","divs");
+//
+//     console.log(div.getAttribute("name"));
+
+//      div.className="divs";
+
+           var style={width:"100px",height:"100px",backgroundColor:"#f0F"};
+        for (var str in style){
+               div.style[str]=style[str];
+        }
+
+
+    setInterval('alert("你好")',2000);  //每2秒弹出 你好
+
+
+
+
+
+
+</script>
+</body>
+</html>

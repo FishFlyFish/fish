@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+          <button>关闭页面</button>
+
+<script>
+
+      /*   BOM
+      *   BOM,浏览器对象模型，window
+      *   script中描述所有的内容都属于window对象，window根节点
+      *   抽象出一个对象,把浏览器的所有的信息,和操作,都放在了这个对象中,这个对象就是window
+      * */
+//       window.alert("你好");  //弹出信息框
+
+//      prompt("你好");        //弹出对话框
+//  var a=prompt("请输入你的名字");
+//  console.log(a);     //输入什么得到什么（点击正确）  点击取消得到null  不输入得到就是空
+
+
+
+
+//      var a=prompt("你喜欢苍老师吗 1 喜欢  2  不喜欢");
+//
+//      if(a<2){
+//          alert("你已经无药可救了，自裁吧");
+//      }else {
+//          alert("不喜欢就对了，小伙子你很有前途哦");
+//      }
+
+
+//      window.document;//DOM对象
+//      window.location;//本地对象
+//      window.history;//历史对象
+//      window.screen;//屏幕对象
+//      window.navigator;//导航对象
+
+//      open("http://www.163.com","163","width=300,height=300,left=200,top=200");
+
+
+      //  设置一个从0记时到5的 函数
+//      var a=setInterval(gotoURL,1000);    //一秒执行一次下面的函数
+//      var time=0;
+//      function gotoURL() {                //执行函数
+//          document.body.innerHTML=time;
+//          time++;
+//          if(time>5){                    //  如果把if语句删掉就会一直记时下去
+//              clearInterval(a);}}          //  清除函数
+
+
+
+
+
+
+    /*  open 重要
+    *   location
+    *   location.href   重要
+    *   location.assign 与上面一样，通常用前者
+    *   location.replace  重新加载
+    * */
+
+//    location.href="http://www.163.com";   //跳转到163  历史记录
+//    location.assign("http://www.163.com");   //跳转到百度  历史记录
+
+      //重新加载
+//      location.reload();
+//    location.replace("http://www.163.com");   //跳转到百度  没有历史记录
+
+//    location.hash="a=10&b=20";  //使用hash可以不用刷新页面加入内容
+//    location.search="a=10&b=20";  //使用search和href给地址栏中加入参数时
+
+//     console.log(location.hash)   //获取地址中问号后面的内容
+//     console.log(location.search)            //重要
+//     console.log(location.hostname)   //域名   重要
+//     console.log(location.port)      //端口号
+//     console.log(location.protocol)  //协议
+//     console.log(location.userAgent)  //  重要
+
+
+
+      /*
+         *navigator  导航对象
+         *
+         * */
+//      var v;
+//      if(navigator.userAgent.indexOf("Chrome")>-1){
+//          v=(navigator.userAgent.split("Chrome/")[1]).split(" ")[0];
+//          console.log("这是谷歌"+v)
+//      }else if(navigator.userAgent.indexOf("Firefox")>-1){
+//          v=navigator.userAgent.split("Firefox/")[1];
+//          console.log("这是火狐"+v);
+//      }else if(navigator.userAgent.indexOf("rv:")>-1){
+//          v=navigator.userAgent.split("rv:")[1].split(")")[0];
+//          console.log("这是IE"+v);
+//      }else if(navigator.userAgent.indexOf("MSIE")>-1){
+//          v=navigator.userAgent.split("MSIE ")[1].split(";")[0];
+//          console.log("这是IE"+v);
+//      }
+//      console.log(navigator.appName);
+//      console.log(navigator.appVersion);
+//      console.log(navigator.platform);//操作系统平台
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

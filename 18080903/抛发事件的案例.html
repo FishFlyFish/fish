@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="red">红灯</button>
+<button id="green">绿灯</button>
+<button id="yellow">黄灯</button>
+<div id="divs"></div>
+
+<script>
+    var red=document.getElementById("red");
+    var green=document.getElementById("green");
+    var yellow=document.getElementById("yellow");
+    var divs=document.getElementById("divs");
+    var list=[];    //注意这一步
+
+    red.addEventListener("click",redClickHandler);
+    green.addEventListener("click",greenClickHandler);
+    yellow.addEventListener("click",yellowClickHandler);
+
+    document.addEventListener("redClick",divsChangeHandler);
+    document.addEventListener("greenClick",divsChangeHandler);
+    document.addEventListener("yellowClick",divsChangeHandler);
+
+    function redClickHandler(e) {
+        var evt=new Event("redClick");
+        document.dispatchEvent(evt);
+    }
+
+
+    function greenClickHandler(e) {
+        var evt=new Event("greenClick");
+        document.dispatchEvent(evt);
+    }
+
+    function yellowClickHandler(e) {
+        var evt=new Event("yellowClick");
+        document.dispatchEvent(evt);
+    }
+
+    function divsChangeHandler(e) {
+        if(~list.indexOf(e.type))return;
+        list.push(e.type);
+        if(list.length===2){
+            divs.textContent="三盏灯都点亮了";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //正则表达式区分大小写
+
+//     var reg=new RegExp(".*?","g");
+//     var reg1=/.*?/g;
+//     console.log(reg,reg1);        //  打印结果都一样，但是二者不相等
+//     console.log(reg===reg1);      //false
+
+/*
+*
+*   正则表达式的方法
+*
+*   正则表达式对象.test(字符串)，查看字符串中是否有满足正则表达式的约束
+*   正则表达式对象.exec(字符串),查看字符串中是否有满足这个正则表达式的约束，
+*     并且返回数组，数组中描述了这个满足的条件，以及它所在的索引位置
+*
+*
+* */
+
+           var str="abbcaccea";
+           var reg=/c/g;
+//           console.log(reg.test(str));    //判断是否匹配，返回值是true  false
+           console.log(reg.exec(str));    //   ["c", index: 3, input: "abbcaccea", groups: undefined]
+      //注：exec与只有一个匹配内容的match相同
+
+
+
+/*
+    *
+    *   字符串的方法
+    *str.replace(正则表达式,替换的内容)；
+    * 如果正则表达式后面加修饰符g，就会全部匹配替换
+    *
+    *str.match(reg) 查找字符串中匹配正则表达式条件的内容，以数组的形式返回出来
+    * 如果只有一个，不使用修饰符g，那么作用和正表达式的exec方法相同
+    * 如果加入修饰符g,就可以返回所有找到的元素
+    * 是找到字符串中与match匹配的
+    *
+    * str.search(reg) 搜索查找字符串中第一次找到匹配正则表达式内容位置
+    *
+    *
+    * str.split(reg) 按照reg规则将字符串转换为数组
+    *
+    * */
+
+//                   var str="abbcaccea";
+//                    var reg=/c/g;
+
+//                   str=str.replace(reg,"h");
+//                   console.log(str);
+//                   console.log(str.replace(/c/g,"x"));    //abbxaxxex
+
+                      //match  以数组的形式返回
+//                    console.log(str.match(/c/g));         //["c","c","c"]
+
+//                    console.log(str.search(/c/g));         // 3 只会找到第一次找到的下标
+
+
+//                  var str1="你好，欢迎来到我们环境\n。请参观";
+//                  console.log(str1.indexOf("\n"));        //  11
+//                  console.log(str1.search(/\n/));         //   11
+
+
+//            var strs="<div>你好\n欢迎来到这里\n现在我们可以正式了解正则表达式了</div>";
+//
+//               strs1=strs.replace(/div/g,"span");
+//                strs2=strs1.replace(/\n/g,"<br/>");      //    \n表示自动换行
+//              console.log(strs2);
+//
+//              strs1=strs.replace(/div/g,"span").replace(/\n/g,"<br/>");
+//                   console.log(strs1);
+//[.]与\.一样
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

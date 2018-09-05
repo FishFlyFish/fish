@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div0
+        {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+            position: relative;
+            margin: auto;
+        }
+        .div1
+        {
+            width: 100px;
+            height: 100px;
+            background-color: deepskyblue;
+            position: absolute;
+            left: 0;
+            top:0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .div2
+        {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            position: absolute;
+            left: 0;
+            top:0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="div0">
+        <div class="div1">
+            <div class="div2"></div>
+        </div>
+
+    </div>
+
+<script>
+
+      //  获取div阶段
+    var div0=document.querySelector(".div0");
+    var div1=document.querySelector(".div1");
+    var div2=document.querySelector(".div2");
+
+       //建立侦听机制
+    div0.addEventListener("click",clickHandler1);
+    div1.addEventListener("click",clickHandler2);
+    div2.addEventListener("click",clickHandler3);
+
+//      div0.addEventListener("click",clickHandler1,true);
+//      div1.addEventListener("click",clickHandler2,true);
+//      div2.addEventListener("click",clickHandler3,true);
+
+      //注：如果在后面吗加上true，那么就不再是从里面往外冒了，而是按正常的父元素子元素来出现
+    /*
+    *       捕获阶段      目标阶段       冒泡阶段
+    *       div0           div2         div2
+    *       div1                        div1
+    *       div2                        div0
+    *
+    * */
+
+       //执行函数
+    function clickHandler1(e) {
+        console.log("点击了div0");
+//        e.stopPropagation(); //event.stopPropagation() 方法阻止事件冒泡到父元素，阻止任何父事件处理程序被执行。
+    }
+    function clickHandler2(e) {
+        console.log("点击了div1");
+//        e.stopPropagation(); //event.stopPropagation() 方法阻止事件冒泡到父元素，阻止任何父事件处理
+    }
+    function clickHandler3(e) {
+        console.log("点击了div2");
+        e.stopPropagation(); //event.stopPropagation() 方法阻止事件冒泡到父元素，阻止任何父事件处理
+    }
+
+    //注如果在clickHandler3内加 e.stopPropagation()，那么div0 和div1都得不到，因为他俩是div2的父元素
+
+</script>
+
+
+</body>
+</html>

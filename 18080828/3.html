@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <script>
+
+              //二维数组  二维数组的创建
+              //二维数组使用时，直接使用arr[行数][列数]就可以找到唯一对象关系
+
+//               var arr=[];
+//               for (var i=0;i<10;i++){
+//                    arr[i]=[];
+//                   for (var j=0;j<10;j++){
+//                       arr[i][j]=i*10+j;
+//                   }
+//               }
+//                 console.log(arr);
+
+
+
+
+              //这是对象型数组，每个对象是一个元素
+              //注意对象是无法使用for循环，对象没有长度
+//              var shopArr=[
+//                  {id:1001,icon:"img/1.png",name:"餐饮0",num:1,price:20},
+//                  {id:1002,icon:"img/2.png",name:"餐饮1",num:1,price:20},
+//                  {id:1003,icon:"img/3.png",name:"餐饮2",num:1,price:30},
+//                  {id:1004,icon:"img/4.png",name:"餐饮3",num:1,price:40},
+//                  {id:1005,icon:"img/5.png",name:"餐饮4",num:1,price:40},
+//                  {id:1006,icon:"img/6.png",name:"餐饮5",num:1,price:60},
+//                  {id:1007,icon:"img/7.png",name:"餐饮6",num:1,price:70},
+//                  {id:1008,icon:"img/8.png",name:"餐饮7",num:1,price:90},
+//                  {id:1009,icon:"img/9.png",name:"餐饮8",num:1,price:90},
+//                  {id:1010,icon:"img/10.png",name:"餐饮9",num:1,price:100}
+//              ];
+//                for (var s=0;s<shopArr.length;s++){
+//                    var obj=shopArr[s];
+//                    for (var str in obj){      //遍历对象中所有属性，str就是这里的属性名的变量
+////                        console.log(str);      //结果为对象里素有的属性名
+//                        console.log(obj[str]);  //所有的属性值
+//                    }
+//                }
+
+              //   name必须是一个确定的属性，才可以使用.语法
+              //      obj.name
+              //     name就是关键字，key,obj["name"]====obj.name
+              //       obj["name"]
+              //        这种写法的name是一个字符串，因此我们可以使用变量来替换
+              //    var str="name";
+               //    obj[str]
+
+                // Math.abs() 绝对值
+//                   var x=-10;
+//                   var y=Math.abs(x);
+//                   console.log(y);      //10
+//
+//              if(~(Math.abs(x)/x)){       //0为false
+//                  console.log("这是正值");   //不执行
+//              }
+//
+//              if(x<0){
+//                  x=~x+1;//x小于0是负数，-（负数+1)+1; -(-3+1)+1
+//              };
+//              console.log(x);
+
+
+              //四舍五入和上下舍入
+              //Math.round 四舍五入   根据4，5进位和不进位
+              //Math.floor 向下舍入  不进位
+              //Math.ceil  向上舍入   进位
+
+//              var a=3.14;
+//              var b=3.85;
+//              console.log(Math.round(a));            //3
+//              console.log(Math.round(b));           //  4    四舍五入取整   针对小数
+//              console.log(Math.floor(b));           //3  向下舍入
+//              var c=365.25;
+//              console.log(Math.floor(c/10%10));      // 6 向下舍入
+//              console.log(Math.ceil(a));           // 4 向上舍入
+
+
+              //最大最小值
+              //Math.max() 最大值
+              //Math.min() 最小值
+
+//              console.log(Math.max(3,5,8,1));   //8
+//              console.log(Math.min(3,5));       //3
+
+//              var arr=[1,4,7,2,1,2,0,10,25,15];
+//              var max=arr[0];
+//               for(var i=0;i<arr.length;i++){
+//                   if(max<arr[i]){
+//                       max=arr[i];
+//                   }
+//               }
+//               console.log(max);        //  25
+//              console.log(Math.max.apply(null,arr));    //求数组中元素的最大值(一句话即可)
+
+
+       //  幂和平方根
+       //  Math.sqrt(2) 开平方根
+       //  Math.pow(); 可以求幂也可以开各种方根
+
+//     console.log(Math.sqrt(2));  //1.4142135623730951 2开平方根
+//     console.log(Math.SQRT2);   //1.4142135623730951  只能是SQRT2，其他的都是undefined
+//     console.log(Math.pow(2,3));  // 8  2的3次方 可以任意次方
+//      console.log(Math.pow(8,1/3));  //2  开8的3次方根
+//      console.log(1<<3);             // 8  1*2的三次方
+//     console.log(2<<4);              // 32  2*2的四次方
+  //注：<<n   代表2的n次方
+
+
+//              Math.random();
+//              var s=Math.random()*100;     //随机数，数值从0-100，但是不包含100
+//              Math.random()   0-1之间随机小数
+//              function getRandom(min,max) {
+//               return Math.floor(Math.random()*(max-min)+min);  //随机求取最小值到最大值
+//                }
+
+              var arr1=[];
+              arr1.push(1);
+              for(var j=0;j<3;j++){
+                  arr1.push(2);
+              }
+              for(var k=0;k<5;k++){
+                  arr1.push(3);
+              }
+              for(var m=0;m<10000;m++){
+                  arr1.push(0);
+              }
+              arr1.sort(function () {
+                  return Math.random()-0.5;
+              });
+              console.log(arr1.pop());
+
+              console.log(arr1);
+
+
+
+
+</script>
+
+</body>
+</html>

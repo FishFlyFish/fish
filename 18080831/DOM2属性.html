@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .divs
+        {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--标签属性-->
+<!--在这里将class="divs"删掉，那么上面的样式就不会出现了，但是我们可以在下面用对象创建一个类-->
+<div id="div0"  name="aa" title="bb"></div>
+
+<script>
+    /*
+    *  DOM的属性操作，增删改查
+        什么是元素的属性？class就是元素的属性，写在元素内的所有东西都是元素的属性，比如link的href，img的src等
+        元素的属性是什么，分为两种，一种叫内置属性，一种叫非内置属性。
+        内置属性可以直接通过点"."进行操作
+    *
+    *  内置对象：数组对象  日期对象  数值对象  字符串对象 数学对象  基础对象 number对象.....
+    * */
+
+
+
+
+    var div=document.querySelector("div");
+
+    //    console.log(div.id);// div0  对象属性id和标签属性id相同
+    //    console.log(div.title);// bb 对象属性title和标签属性title相同
+    //    console.log(div.class);// undefined  对象属性下没有class，但是对象属性下有一个className和标签属性class相同
+    //    console.log(div.name);// undefined 对象属性下的name和标签属性的name不同
+
+    /*
+       *  设置DOM对象的标签属性，通过设置属性名和属性值
+       *  DOM 对象.setAttribute(属性名，属性值)
+       *  获取 DOM对象的标签属性，获取的结果一定是一个字符串
+       *  DOM对象.getAttribute(属性名)
+       *  删除DOM的对象标签属性
+       *  DOM对象.removeAttribute(属性名)
+       *
+       * */
+
+    //        标签属性的命名 全部小写字母，单词与单词之间用-连接，不是下划线
+//              div.setAttribute("tag-name","cc");
+//                 console.log(div);   // 添加标签属性
+             console.log(div.getAttribute("title")); // bb  得到的是一个字符串
+
+    //         div.className="divs";  //div里面没有创建，可以动用对象创建一个类
+    //         div.setAttribute("class","divs");  // 直接创建一个属性也可以
+    //  注：以上两种办法都可以
+
+             div.removeAttribute("name");
+             console.log(div);   //  删除了name属性
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

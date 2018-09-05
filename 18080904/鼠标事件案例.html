@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            display: none;
+            z-index: 9999
+        }
+        li{
+            padding: 5px 20px;
+            font-size: 16px;
+            background-color: deepskyblue;
+            cursor: default;
+        }
+        li:hover{
+            background-color: dodgerblue;
+        }
+
+    </style>
+    <script src="Method.js"></script>
+</head>
+<body>
+
+<ul>
+    <li>叫爸爸-新建</li>
+    <li>叫爷爷-复制</li>
+    <li>叫妈妈-剪切</li>
+    <li>叫奶奶-粘贴</li>
+    <li>叫祖宗-删除</li>
+</ul>
+
+<script>
+    var ul=document.querySelector("ul");
+    var preDiv;   //上一次选中的div
+    var cloneDiv;
+    //        添加鼠标事件环境菜单（单击右键）,执行函数contextHandler
+    document.addEventListener("contextmenu",contextHandler);
+    ul.addEventListener("mouseleave",mouseLeaveHandler);  //针对ul侦听，离开最外面的用mouseleave
+    ul.addEventListener("click",clickHandler);
+
+    function contextHandler(e) {
+       // 阻止默认行为，就是取消系统默认的菜单
+        e.preventDefault();
+//            e.returnValue=false;//IE8中取消默认行为
+        /*
+        *  将ul的位置放在当前鼠标的右键点击的位置，并且让他显示
+        *  -10就是为了防止下面鼠标抖动离开ul时ul消失，
+        * */
+        ul.style.left=e.x-10+"px";
+        ul.style.top=e.y-10+"px";    //让菜单出现在想要的位置
+        ul.style.display="block"   //右键点击之后会出现菜单
+    }
+     function mouseLeaveHandler() {
+         ul.style.display="none";   //表示菜单离开之后就会消失
+     }
+      function clickHandler(e) {
+          switch (e.target.textContent){  //注意这个情况下用switch选择（多分支条件结构）
+              case "叫爸爸-新建":
+                  createDiv(e.x,e.y);  //在这里调用下面的函数，将实参传送过去，这样才能确定新建后div的位置
+                  break;
+              case "叫爷爷-复制":
+                  cloneDivs();
+                  break;
+              case "叫妈妈-剪切":
+                  cloneDivs();
+                  removeDiv();
+                  break;
+              case "叫奶奶-粘贴":
+                  document.body.appendChild(cloneDiv);
+                  cloneDiv.style.left=e.x-25+"px";
+                  cloneDiv.style.top=e.y-25+"px";
+                  cloneDiv.addEventListener("dblclick",selectHandler); //建立一个克隆过后的div，让它业内双击选中
+                  break;
+              case "叫祖宗-删除":
+                  removeDiv();
+                  break;
+          }
+          ul.style.display="none";
+      }
+
+      //新建后创建的div
+    function createDiv(x,y) {    //注意这里的x,y不是具体的，而是一个形参，上面的实参会穿过来执行这个函数
+        var div=document.createElement("div");
+//            这是一个对象，width，height都是固定值50像素，背景色：通过函数获取随机颜色,定位：绝对定位，左：当前传入的x坐标-25，顶：当前传入的y坐标-25
+        var styles={
+            width:"50px",
+            height:"50px",
+            backgroundColor:Method.randomColor(true), //因为这个随机变色的函数在新建的methon.js中，一定要写true，会透明
+            position:"absolute",
+            left:x-25+"px",   //这里的x等传参过来后就会是e.x
+            top:y-25+"px"
+        };
+        // 将所有样式赋予div的style样式
+        Method.setStyle(div,styles);     //  在Method.js中看，就是将(div,styles)传参几进去
+//            将div放在body中
+        document.body.appendChild(div);      //创建了div，但是要在页面中显示必须添加到页面的body中
+//            当鼠标双击div时，执行selectHandler
+        div.addEventListener("dblclick",selectHandler);
+
+    }
+
+    //复制
+    function cloneDivs() {
+        if(preDiv){     //如果preDiv存在就为真，执行后面的语句
+            cloneDiv=preDiv.cloneNode(false);   //给选中div克隆(false浅复制)
+            cloneDiv.style.border="none";
+        }
+
+    }
+
+     //删除
+    function removeDiv() {
+        if(preDiv){
+            preDiv.removeEventListener("dblclick",selectHandler);
+            preDiv.removeEventListener("mousedown",dragHandler);
+            preDiv.remove();
+            preDiv=null;
+        }
+    }
+
+
+
+    //  双击时迅的函数
+    function selectHandler(e) {
+//            如果原来的preDiv有指向的div元素时
+        if(preDiv){
+//                设置这个div的样式边线取消
+            preDiv.style.border="none";
+//                删除侦听按下事件，这样这个元素就不会被拖动了
+            preDiv.removeEventListener("mousedown",dragHandler);  //比如新选中了一个或复制后的div双击后之前选中的就不能拖动了
+        }
+//            把当前双击的对象赋值给preDiv
+        preDiv=this;
+//            当前被选中的元素侦听按下事件，可以进行拖动
+        preDiv.addEventListener("mousedown",dragHandler);
+//            并且设置这个当前双击的对象的边线是1像素实体黑色
+        preDiv.style.border="1px solid #000000";
+    }
+
+
+
+    /*
+        *
+        *   拖动事件函数
+        * */
+    function dragHandler(e) {
+//            当鼠标按下键
+        if(e.type==="mousedown"){
+//                这个条件中，所有this是当前侦听的对象，
+//         就是侦听mousedown事件的对象，也就是每个被侦听mousedown的div
+//                这里取消默认行为事件可以当鼠标按下时被拖动的元素不产生问题
+            e.preventDefault();
+//                给documen侦听鼠标移动事件,表示我们鼠标再按下后在当前页面上移动,
+//              执行函数dragHandler
+            document.addEventListener("mousemove",dragHandler);
+//                e.offsetX,e.offsetY是鼠标按下时，点击相对按下对象的左上角位置，
+//          我们把这个数据存储在document对象的offsetPoint属性中，分别存储x和y，以备后用
+            document.offsetPoint={x:e.offsetX,y:e.offsetY};
+//                将当前按下的对象存储在document对象的dragTarget属性中以备后用
+            document.dragTarget=this;
+//                侦听当鼠标释放时，执行dragHandler
+            this.addEventListener("mouseup",dragHandler);
+//                当鼠标在document上移动事件
+        }else if(e.type==="mousemove"){
+//                这个条件中，所有的this是当前侦听mousemove的对象
+//                mousemove侦听的对象是上面那个条件中描述的document，
+//              因此这里的this就是document
+//                这里this就是document，dragTarget就是上面那个函数中存储需要拖动的div
+//                设置这些div的坐标为鼠标移动的pageX和pageY，这里需要减去按下时相对鼠标左上角位置
+//                这个值就是上面存储的offsetPoint对应x和y
+            this.dragTarget.style.left=e.pageX-this.offsetPoint.x+"px";
+            this.dragTarget.style.top=e.pageY-this.offsetPoint.y+"px";
+//                当鼠标释放键时事件
+        }else if(e.type==="mouseup"){
+//                这个条件中，所有this就是侦听mouseup的对象
+//                在侦听mousedown事件执行条件中,我们可以发现侦听mouseup的对象就是mousedown中this
+//                也就是这里的this和mousedown中this是同一个,就是每个div
+//                删除document的鼠标移动事件
+            document.removeEventListener("mousemove",dragHandler);
+//                释放鼠标时的事件也被删除
+            this.removeEventListener("mouseup",dragHandler);
+        }
+    }
+
+</script>
+
+
+
+</body>
+</html>
